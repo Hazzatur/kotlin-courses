@@ -1,15 +1,18 @@
 package com.example.superhumanregistrationact
 
-import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.MediaStore
+import android.os.Environment
 import android.widget.ImageView
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.FileProvider
 import androidx.core.graphics.drawable.toBitmap
 import com.example.superhumanregistrationact.databinding.ActivityMainBinding
+import java.io.File
 
 class MainActivity : AppCompatActivity() {
     companion object {
@@ -19,11 +22,14 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var picture: ImageView
     private var superHumanPicture: Bitmap? = null
+    private var picturePath = ""
 
-    private val getContent = registerForActivityResult(ActivityResultContracts.TakePicturePreview()) {
-        bitmap ->
-        superHumanPicture = bitmap
-        picture.setImageBitmap(superHumanPicture)
+    private val getContent = registerForActivityResult(ActivityResultContracts.TakePicture()) {
+            success ->
+        if (success && picturePath.isNotEmpty()) {
+            superHumanPicture = BitmapFactory.decodeFile(picturePath)
+            picture.setImageBitmap(superHumanPicture)
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,11 +62,22 @@ class MainActivity : AppCompatActivity() {
     private fun openDetailActivity(superHuman: SuperHuman) {
         val intent = Intent(this, DetailActivity::class.java)
         intent.putExtra(SUPERHUMAN_KEY, superHuman)
-        intent.putExtra(BITMAP_KEY, picture.drawable.toBitmap())
+        intent.putExtra(BITMAP_KEY, picturePath)
         startActivity(intent)
     }
 
     private fun openCamera() {
-        getContent.launch(null)
+        val file = createImageFile()
+        val uri = FileProvider.getUriForFile(this, "$packageName.provider", file)
+        // Uri.fromFile(file) // for older version Build.VERSION.SDK_INT < Build.VERSION_CODES.N
+        getContent.launch(uri)
+    }
+
+    private fun createImageFile(): File {
+        val fileName = "superhuman_profile_picture"
+        val fileDirectory = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+        val file = File.createTempFile(fileName, ".jpg", fileDirectory)
+        picturePath = file.absolutePath
+        return file
     }
 }
