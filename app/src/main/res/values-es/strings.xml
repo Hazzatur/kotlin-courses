@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="local">Local</string>
+    <string name="visitor">Visitante</string>
+    <string name="match_results">Resultados de la partida</string>
+    <string name="basketball_img">Image de balón de basketball</string>
+    <string name="restart_leaderboard">Reiniciar marcador</string>
+    <string name="match_label">Local - Visitante</string>
+    <string name="result_local_win">¡Ganó el equipo local!</string>
+    <string name="result_visitor_win">¡Ganaron los visitantes!</string>
+    <string name="result_tie">Fue un empate 😕</string>
+</resources>

@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name" translatable="false">Basketball Score</string>
+    <string name="local">Local</string>
+    <string name="visitor">Visitor</string>
+    <string name="remove_point" translatable="false">-1</string>
+    <string name="add_point" translatable="false">+1</string>
+    <string name="add_two_points" translatable="false">+2</string>
+    <string name="score" translatable="false">X</string>
+    <string name="match_results">Match results</string>
+    <string name="basketball_img">Basketball picture</string>
+    <string name="restart_leaderboard">Restart leaderboard</string>
+    <string name="match_label">Local - Visitor</string>
+    <string name="result_local_win">The Local\'s team won!</string>
+    <string name="result_visitor_win">The Visitor\'s won!</string>
+    <string name="result_tie">It\'s a tie 😕</string>
+    <string name="results" translatable="false">X - X</string>
+</resources>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:weightSum="100"
+        tools:context=".ScoreActivity">
+
+        <TextView
+            android:id="@+id/match_label"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="25"
+            android:gravity="bottom"
+            android:text="@string/match_label"
+            android:textSize="36sp" />
+
+        <TextView
+            android:id="@+id/results"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="15"
+            android:gravity="center"
+            android:text="@string/results"
+            android:textSize="116sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/results_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="20"
+            android:gravity="center"
+            android:text="@string/result_tie"
+            android:textSize="32sp" />
+    </LinearLayout>
+</layout>
