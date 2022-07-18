@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Acta de Registro Super Humano</string>
+    <string name="superhuman_picture">Foto del Super Humano</string>
+    <string name="superhuman_name">Nombre del Super Humano</string>
+    <string name="superhuman_alter_ego">Alter ego del Super Humano</string>
+    <string name="superhuman_bio">Biografía del Super Humano</string>
+    <string name="bio">Bio</string>
+    <string name="alter_ego">Alter ego</string>
+    <string name="power">Nivel de poder</string>
+    <string name="save">Guardar</string>
+</resources>

@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Super-human registration act</string>
+    <string name="superhuman_picture">Super-human Picture</string>
+    <string name="superhuman_name">Super-human name</string>
+    <string name="superhuman_alter_ego">Super-human alter ego</string>
+    <string name="superhuman_bio">Super-human biography</string>
+    <string name="bio">Bio</string>
+    <string name="alter_ego">Alter ego</string>
+    <string name="power">Power level</string>
+    <string name="save">Save</string>
+</resources>
