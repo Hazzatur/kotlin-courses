@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.widget.ImageView
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.graphics.drawable.toBitmap
 import com.example.superhumanregistrationact.databinding.ActivityMainBinding
 
@@ -17,6 +18,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private lateinit var picture: ImageView
+    private var superHumanPicture: Bitmap? = null
+
+    private val getContent = registerForActivityResult(ActivityResultContracts.TakePicturePreview()) {
+        bitmap ->
+        superHumanPicture = bitmap
+        picture.setImageBitmap(superHumanPicture)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,18 +60,7 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    //TODO this methods are deprecated, search alternative
     private fun openCamera() {
-        val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-        startActivityForResult(cameraIntent, 1000)
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == Activity.RESULT_OK && requestCode == 1000){
-            val extras = data?.extras
-            val pictureBitmap = extras?.getParcelable<Bitmap>("data")
-            picture.setImageBitmap(pictureBitmap)
-        }
+        getContent.launch(null)
     }
 }
