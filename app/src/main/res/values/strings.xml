@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name" translatable="false">Dog years calculator</string>
+    <string name="how_old_are_you">How old are you?</string>
+    <string name="your_age">Your age</string>
+    <string name="calculate">Calculate</string>
+    <string name="toast_enter_age">Please enter your age</string>
+    <string name="result_age">Your age in dog years is %d</string>
+</resources>
